@@ -1,17 +1,20 @@
-import mongoose from 'mongoose'
-const { DB_URI } = process.env
+import mongoose from "mongoose";
+
+const { DB_URI } = process.env;
+
 if (!DB_URI) {
-  throw new Error('DB_URI must be defined in your config')
+  throw new Error("DB_URI must be defined");
 }
+
 export const connectDB = async () => {
   try {
-    const { connection } = await mongoose.connect(DB_URI)
+    const { connection } = await mongoose.connect(DB_URI);
     if (connection.readyState === 1) {
-      console.log('mongoDB connected successfully')
-      return Promise.resolve(true)
+      console.log("MongoDB Connected");
+      return Promise.resolve(true);
     }
   } catch (error) {
-    console.log(error)
-    return Promise.reject(false)
+    console.error(error);
+    return Promise.reject(error);
   }
-}
+};

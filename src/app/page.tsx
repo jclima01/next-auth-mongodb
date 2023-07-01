@@ -1,3 +1,10 @@
-export default function Home() {
-  return <div className='h-screen w-screen'>Home page </div>
+function HomePage() {
+  // const { data: session, status } = useSession({
+  //   required: true,
+  // });
+  // console.log(session, status);
+
+  return <div>HomePage</div>;
 }
+
+export default HomePage;
